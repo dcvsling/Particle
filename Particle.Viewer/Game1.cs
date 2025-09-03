@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace app;
+namespace Particle.Viewer;
 
 public class Game1 : Game
 {

@@ -30,11 +30,12 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
     <PackageReference Include="xunit.v3" Version="2.0.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="3.0.2" />
+    <PackageReference Include="FluentAssertions" Version="4.19.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Particle.Abstractions\Particle.Abstractions.csproj" />
     <ProjectReference Include="..\..\src\Particle\Particle.csproj" />
+    <ProjectReference Include="..\..\src\Particle.SourceGenerator\Particle.SourceGenerator.csproj" />
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.1.303">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
