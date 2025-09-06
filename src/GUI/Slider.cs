@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using GUI.Events;
+using FontStashSharp;
 
 namespace GUI;
 
@@ -66,10 +67,11 @@ public class Slider : Control
         var handleX = Bounds.X + (int)(t * Bounds.Width) - 5;
         var hr = new Rectangle(handleX, Bounds.Y - 5, 10, Bounds.Height + 10);
         spriteBatch.Draw(Renderer.Pixel, hr, Theme.Default.ControlForegroundColor);
+        Renderer.Font = Theme.Default.Font.GetFont(14f);
         if (Renderer.Font is { })
         {
             spriteBatch.DrawString(Renderer.Font, $"{Label}:{Value:0.##}",
-                new Vector2(Bounds.X, Bounds.Y - Renderer.Font.LineSpacing), Theme.Default.ControlForegroundColor);
+                new Vector2(Bounds.X, Bounds.Y - Renderer.Font.LineHeight), Theme.Default.ControlForegroundColor);
         }
     }
 }

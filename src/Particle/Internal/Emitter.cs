@@ -2,13 +2,6 @@ using Particle.Abstractions;
 
 namespace Particle.Internal;
 
-internal class ParticleEmitTrigger
-{
-    void Subscribe(Action trigger)
-    {
-        
-    }
-}
 
 
 

@@ -1,4 +1,5 @@
 using System;
+using FontStashSharp;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -22,6 +23,7 @@ public class Button : Control
     {
         if (!Visible) return;
         spriteBatch.Draw(Renderer.Pixel, Bounds, Theme.Default.ControlBackgroundColor);
+        Renderer.Font = Theme.Default.Font.GetFont(14f);
         if (Renderer.Font is { })
         {
             Vector2 size = Renderer.Font.MeasureString(_text);

@@ -1,51 +1,44 @@
-﻿using Microsoft.Xna.Framework;
+﻿using Console.Core;
+using Console.MonoGameUI;
+using GUI;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 
-namespace Particle.Viewer;
+namespace SampleGame;
 
 public class Game1 : Game
 {
-    private GraphicsDeviceManager _graphics;
-    private SpriteBatch _spriteBatch;
+    private readonly GraphicsDeviceManager _gdm;
+    private SpriteBatch? _batch;
+    private InGameConsoleComponent? _console;
+    private SpriteFont? _font;
 
     public Game1()
     {
-        _graphics = new GraphicsDeviceManager(this);
+        _gdm = new GraphicsDeviceManager(this);
         Content.RootDirectory = "Content";
         IsMouseVisible = true;
     }
-
     protected override void Initialize()
     {
-        // TODO: Add your initialization logic here
-
         base.Initialize();
+        Window.BeginScreenDeviceChange(false);
+        Window.EndScreenDeviceChange(Window.ScreenDeviceName, 800, 600);
     }
+
 
     protected override void LoadContent()
     {
-        _spriteBatch = new SpriteBatch(GraphicsDevice);
-
-        // TODO: use this.Content to load your game content here
-    }
-
-    protected override void Update(GameTime gameTime)
-    {
-        if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-            Exit();
-
-        // TODO: Add your update logic here
-
-        base.Update(gameTime);
+        _batch = new SpriteBatch(GraphicsDevice);
+        Components.Add(new InGameConsoleComponent(this, Theme.Default.Font, ConsoleHost.Default));
+        base.LoadContent();
     }
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.CornflowerBlue);
-
-        // TODO: Add your drawing code here
-
+        GraphicsDevice.Clear(Color.Black);
         base.Draw(gameTime);
     }
+
+    public static void Main() => new Game1().Run();
 }

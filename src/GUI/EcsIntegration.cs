@@ -1,3 +1,6 @@
+using Cyotek.Drawing.BitmapFont;
+using FontStashSharp;
+
 namespace GUI;
 
 /// <summary>
@@ -9,5 +12,7 @@ public interface IEcsGuiLoader
     /// Load or update GUI controls into the given ECS world/context.
     /// </summary>
     /// <param name="world">ECS world or context instance.</param>
-    void Load(object world);
+    static void Load(object world)
+    {
+    }
 }

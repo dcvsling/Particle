@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using GUI;
 using Xunit;
+using Microsoft.Xna.Framework.Input;
 
 namespace GUI.Tests
 {

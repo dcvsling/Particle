@@ -1,3 +1,2 @@
 ﻿
-using var game = new Particle.Viewer.Game1();
-game.Run();
+SampleGame.Game1.Main();
